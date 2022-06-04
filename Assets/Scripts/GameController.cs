@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -11,8 +12,17 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private bool paused;
 
+    private float scoreTimer;
+
+    [SerializeField]
+    private int scoreTimerLimit = 5;
+
     public GameObject pauseText;
     public GameObject gameOverText;
+    public GameObject scoreGameObject;
+  
+    private int points;
+
 
     private void Awake()
     {
@@ -23,7 +33,10 @@ public class GameController : MonoBehaviour
         else
         {
             Instance = this;
+            
         }
+        
+        
 
     }
     // Start is called before the first frame update
@@ -33,6 +46,8 @@ public class GameController : MonoBehaviour
         paused = false;
         pauseText.SetActive(false);
         gameOverText.SetActive(false);
+        points = 0;
+        
 
     }
 
@@ -48,6 +63,7 @@ public class GameController : MonoBehaviour
         {
             gameOverText.SetActive(gameOver);
         }
+      
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             paused = !paused;
@@ -60,8 +76,21 @@ public class GameController : MonoBehaviour
                 UnPause();
             }
         }
-        
+
+        else
+        {
+            scoreTimer += Time.deltaTime;
+            if (scoreTimer > 3)
+            {
+
+                scoreTimer = 0;
+                points += 1;
+            }
+            scoreGameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + points;
+        }
        
+
+
     }
 
    public bool IsGameOver()
