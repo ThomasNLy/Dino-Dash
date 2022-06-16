@@ -6,17 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     bool alive = true;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+ 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Pillar")
@@ -25,4 +15,5 @@ public class PlayerHealth : MonoBehaviour
             GameController.Instance.GameOver();
         }
     }
+
 }
