@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoubleJump : MonoBehaviour
 {
     Rigidbody2D rb2d;
+    public Animator animator;
     [SerializeField]
     bool jumping = false;
     [SerializeField]
@@ -32,6 +33,8 @@ public class DoubleJump : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 jumping = true;
+                animator.SetBool("isJumping", true); // sets the animation parameter value
+              
             }
             if (rb2d.velocity.y > 0)
             {
@@ -56,6 +59,10 @@ public class DoubleJump : MonoBehaviour
         }
     }
 
+    void OnLand()
+    {
+        animator.SetBool("isJumping", false);
+    }
     void Jump()
     {
 
@@ -71,6 +78,8 @@ public class DoubleJump : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             numJumps = maxJumps;
+
+            OnLand();
         }
     }
 }
