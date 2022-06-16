@@ -20,6 +20,9 @@ public class GameController : MonoBehaviour
     public GameObject pauseText;
     public GameObject gameOverText;
     public GameObject scoreGameObject;
+    public GameObject powerUpBar;
+    [SerializeField]
+    private int powerUpPoints;
   
     private int points;
 
@@ -47,6 +50,7 @@ public class GameController : MonoBehaviour
         pauseText.SetActive(false);
         gameOverText.SetActive(false);
         points = 0;
+        powerUpPoints = 0;
         
 
     }
@@ -87,6 +91,7 @@ public class GameController : MonoBehaviour
                 points += 1;
             }
             scoreGameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + points;
+            powerUpBar.GetComponent<TMPro.TextMeshProUGUI>().text = "Power up: " + powerUpPoints;
         }
        
 
@@ -121,5 +126,10 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseText.SetActive(paused);
+    }
+
+    public void IncreasePowerUpBar()
+    {
+        powerUpPoints += 1;
     }
 }
