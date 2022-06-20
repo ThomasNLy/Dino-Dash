@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 415689997}
   - component: {fileID: 415689998}
   - component: {fileID: 415689999}
+  - component: {fileID: 415690002}
   - component: {fileID: 415690000}
   - component: {fileID: 415690001}
   m_Layer: 0
@@ -665,6 +666,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.23862958}
   m_EdgeRadius: 0
+--- !u!114 &415690002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415689991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391792d11be2f4f4aa17da79fdef27c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +990,7 @@ GameObject:
   - component: {fileID: 1357655494}
   - component: {fileID: 1357655493}
   m_Layer: 5
-  m_Name: gameOverText
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1308,7 +1321,7 @@ GameObject:
   - component: {fileID: 1589609934}
   - component: {fileID: 1589609937}
   m_Layer: 5
-  m_Name: pauseText
+  m_Name: PauseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1674,5 +1687,5 @@ MonoBehaviour:
   pauseText: {fileID: 1589609932}
   gameOverText: {fileID: 1357655491}
   scoreGameObject: {fileID: 1506612856}
-  powerUpBar: {fileID: 0}
+  powerUpBar: {fileID: 132475227}
   powerUpPoints: 0
