@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPoolSpawn : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
     protected GameObject [] objects;
     protected int numOfObjects = 6;
     public GameObject prefab;
@@ -13,6 +13,7 @@ public class ObjectPoolSpawn : MonoBehaviour
     protected int spawnIndex = 0;
     protected float spawnTimer = 0;
     public float spawnRate = 3;
+    // Start is called before the first frame update
     void Start()
     {
         SetUp();
@@ -25,12 +26,12 @@ public class ObjectPoolSpawn : MonoBehaviour
     }
 
     /**
-     * needed for inheritance as a parent class
+     * setupFunction is created as needed for inheritance as a parent class
      */
     public void SetUp()
     {
-        outOfBoundsBarrier = GameObject.Find("OutOfBoundsBarrier");
-        spawnLoc = GameObject.FindGameObjectWithTag("SpawnLoc");
+        outOfBoundsBarrier = GameController.Instance.outOfBoundsBarrier;
+        spawnLoc = GameController.Instance.spawnLoc;
 
         objects = new GameObject[numOfObjects];
         for (int i = 0; i < numOfObjects; i++)
@@ -38,6 +39,7 @@ public class ObjectPoolSpawn : MonoBehaviour
             objects[i] = Instantiate(prefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
         }
     }
+    //need to add virtual so it can be inherited from 
     public virtual void SpawnObjects()
     {
         if (spawnIndex >= objects.Length)
