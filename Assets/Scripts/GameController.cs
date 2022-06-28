@@ -20,11 +20,16 @@ public class GameController : MonoBehaviour
     public GameObject pauseText;
     public GameObject gameOverText;
     public GameObject scoreGameObject;
+    public GameObject powerUpBarText;
     public GameObject powerUpBar;
+    public GameObject outOfBoundsBarrier;
+    public GameObject spawnLoc;
     [SerializeField]
     private int powerUpPoints;
-  
+
     private int points;
+
+    RectTransform powerUpBarRectContainer;
 
 
     private void Awake()
@@ -36,10 +41,10 @@ public class GameController : MonoBehaviour
         else
         {
             Instance = this;
-            
+
         }
-        
-        
+
+
 
     }
     // Start is called before the first frame update
@@ -51,8 +56,9 @@ public class GameController : MonoBehaviour
         gameOverText.SetActive(false);
         points = 0;
         powerUpPoints = 0;
-        
-
+        powerUpBarRectContainer = powerUpBar.GetComponent<RectTransform>();
+        powerUpBarRectContainer.sizeDelta = new Vector2(10, powerUpBarRectContainer.sizeDelta.y);
+        Debug.Log(powerUpBarRectContainer.sizeDelta.x);
     }
 
     // Update is called once per frame
@@ -67,7 +73,7 @@ public class GameController : MonoBehaviour
         {
             gameOverText.SetActive(gameOver);
         }
-      
+
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             paused = !paused;
@@ -90,15 +96,22 @@ public class GameController : MonoBehaviour
                 scoreTimer = 0;
                 points += 1;
             }
+            if (powerUpPoints >= 10)
+            {
+                powerUpPoints = 10;
+            }
             scoreGameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + points;
-            powerUpBar.GetComponent<TMPro.TextMeshProUGUI>().text = "Power up: " + powerUpPoints;
+            powerUpBarText.GetComponent<TMPro.TextMeshProUGUI>().text = "Power up: " + powerUpPoints;
+            
+            powerUpBarRectContainer.sizeDelta = new Vector2(powerUpPoints  * 10, powerUpBarRectContainer.sizeDelta.y);
+          
         }
-       
+
 
 
     }
 
-   public bool IsGameOver()
+    public bool IsGameOver()
     {
         return gameOver;
     }
