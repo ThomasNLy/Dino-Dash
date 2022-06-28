@@ -5,17 +5,23 @@ using UnityEngine;
 public class AttackPowerUp : MonoBehaviour
 {
     public GameObject outOfBoundsBarrier;
+    public Animator animator;
     [SerializeField]
     private float timer = 0;
     [SerializeField]
-    private float timeLimit = 3;
+    private float timeLimit;
     [SerializeField]
     bool attacking = false;
     GameObject child;
+ 
+    private void Awake()
+    {
+        timeLimit = 1f;
+    }
     // Start is called before the first frame update
     void Start()
     {
-
+        outOfBoundsBarrier = GameController.Instance.outOfBoundsBarrier;
         child = gameObject.transform.GetChild(0).gameObject;
         child.SetActive(false);
     }
@@ -23,15 +29,21 @@ public class AttackPowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("attacking: " + attacking);
         if (attacking)
         {
             if (timer > timeLimit)
             {
                 child.SetActive(false);
                 attacking = false;
-                timer = 0;
+                // animator.SetBool("isAttacking", attacking);
+                timer = 0f;
             }
             timer += Time.deltaTime;
+        }
+        else 
+        {
+            child.SetActive(false);
         }
         
 
@@ -40,6 +52,8 @@ public class AttackPowerUp : MonoBehaviour
             Debug.Log("f");
             child.SetActive(true);
             attacking = true;
+            //animator.SetBool("isAttacking", attacking);
+            
         }
 
     }
@@ -50,5 +64,14 @@ public class AttackPowerUp : MonoBehaviour
         {
             collision.transform.position = outOfBoundsBarrier.transform.position;
         }
+    }
+
+    public void SetAttacking(bool b)
+    {
+        attacking = b;
+    }
+    public bool IsAttacking()
+    {
+        return attacking;
     }
 }
