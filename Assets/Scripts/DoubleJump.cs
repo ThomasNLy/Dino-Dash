@@ -33,7 +33,8 @@ public class DoubleJump : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 jumping = true;
-                animator.SetBool("isJumping", true); // sets the animation parameter value
+                //animator.SetBool("isJumping", jumping); // sets the animation parameter value
+                
               
             }
             if (rb2d.velocity.y > 0)
@@ -67,9 +68,6 @@ public class DoubleJump : MonoBehaviour
     {
 
         rb2d.velocity = new Vector2(0, jumpForce);
-        
-       
-       
 
     }
 
@@ -81,5 +79,14 @@ public class DoubleJump : MonoBehaviour
 
             OnLand();
         }
+    }
+
+    public void SetJumping(bool b)
+    {
+        jumping = b;
+    }
+    public bool IsJumping()
+    {
+        return jumping;
     }
 }
