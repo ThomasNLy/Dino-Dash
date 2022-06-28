@@ -8,7 +8,7 @@ public class PowerUpPool : ObjectPoolSpawn
     
     void Start()
     {
-        spawnRate = 5;
+        spawnRate = 10;
         SetUp();
     }
 
