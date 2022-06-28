@@ -66,7 +66,7 @@ public class DoubleJump : MonoBehaviour
     }
     void Jump()
     {
-
+        
         rb2d.velocity = new Vector2(0, jumpForce);
 
     }
