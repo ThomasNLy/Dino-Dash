@@ -145,4 +145,8 @@ public class GameController : MonoBehaviour
     {
         powerUpPoints += 1;
     }
+    public int GetPowerUpPoints()
+    {
+        return powerUpPoints;
+    }
 }
