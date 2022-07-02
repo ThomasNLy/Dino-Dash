@@ -53,6 +53,7 @@ public class ObjectPoolSpawn : MonoBehaviour
 
             objects[spawnIndex].transform.position = spawnLoc.transform.position;
             spawnTimer = 0;
+            spawnRate = Random.Range(1, 10);
         }
 
         spawnIndex++;
