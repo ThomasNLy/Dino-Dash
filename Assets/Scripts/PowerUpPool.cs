@@ -27,7 +27,7 @@ public class PowerUpPool : ObjectPoolSpawn
 
         if (objects[spawnIndex].transform.position.x <= outOfBoundsBarrier.transform.position.x && spawnTimer > spawnRate)
         {
-            Debug.Log("spawn");
+            
             float randomY = Random.Range(spawnLoc.transform.position.y, spawnLoc.transform.position.y + 7);
             objects[spawnIndex].transform.position = new Vector2(spawnLoc.transform.position.x, randomY);
             spawnTimer = 0;
