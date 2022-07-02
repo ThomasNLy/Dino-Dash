@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     private float scoreTimer;
 
     [SerializeField]
-    private int scoreTimerLimit = 5;
+    private int scoreTimerLimit = 3;
 
     public GameObject pauseText;
     public GameObject gameOverText;
@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour
         else
         {
             scoreTimer += Time.deltaTime;
-            if (scoreTimer > 3)
+            if (scoreTimer > scoreTimerLimit)
             {
 
                 scoreTimer = 0;
