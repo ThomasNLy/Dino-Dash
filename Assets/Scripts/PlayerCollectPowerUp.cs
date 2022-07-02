@@ -9,7 +9,7 @@ public class PlayerCollectPowerUp : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            GameController.Instance.IncreasePowerUpBar();
+            GameController.Instance.IncreasePowerUpPoints();
         }
     }
 }

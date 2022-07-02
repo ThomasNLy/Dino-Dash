@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
         powerUpPoints = 0;
         powerUpBarRectContainer = powerUpBar.GetComponent<RectTransform>();
         powerUpBarRectContainer.sizeDelta = new Vector2(10, powerUpBarRectContainer.sizeDelta.y);
-        Debug.Log(powerUpBarRectContainer.sizeDelta.x);
+      
     }
 
     // Update is called once per frame
@@ -141,12 +141,17 @@ public class GameController : MonoBehaviour
         pauseText.SetActive(paused);
     }
 
-    public void IncreasePowerUpBar()
+    public void IncreasePowerUpPoints()
     {
         powerUpPoints += 1;
     }
     public int GetPowerUpPoints()
     {
         return powerUpPoints;
+    }
+
+    public void ResetPowerUpPoints()
+    {
+        powerUpPoints = 0;
     }
 }
