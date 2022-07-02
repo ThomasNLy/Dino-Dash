@@ -29,9 +29,10 @@ public class AttackPowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log("attacking: " + attacking);
+      
         if (attacking)
         {
+            child.SetActive(true);
             if (timer > timeLimit)
             {
                 child.SetActive(false);
@@ -44,16 +45,6 @@ public class AttackPowerUp : MonoBehaviour
         else 
         {
             child.SetActive(false);
-        }
-        
-
-        if (Input.GetKeyDown(KeyCode.F) && GameController.Instance.GetPowerUpPoints() >= 10)
-        {
-            Debug.Log("f");
-            child.SetActive(true);
-            attacking = true;
-            //animator.SetBool("isAttacking", attacking);
-            
         }
 
     }

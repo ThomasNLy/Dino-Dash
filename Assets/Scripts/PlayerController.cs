@@ -17,26 +17,29 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (doubleJumpScript.IsJumping())
+        if (GameController.Instance.IsGameOver() == false && GameController.Instance.IsPaused() == false)
         {
-            Debug.Log("jumping");
-            attackPowerUpScript.SetAttacking(false);
-            animator.SetBool("isJumping", true);
+            if (Input.GetMouseButtonDown(0))
+            {
+                doubleJumpScript.SetJumping(true);
+                attackPowerUpScript.SetAttacking(false);
+                animator.SetBool("isJumping", true);
+                animator.SetBool("isAttacking", false);
+                
+            }
 
+            if (Input.GetKeyDown(KeyCode.F) && GameController.Instance.GetPowerUpPoints() >= 10)
+            {
+                
+                attackPowerUpScript.SetAttacking(true);
+                animator.SetBool("isAttacking", true);
+                animator.SetBool("isJumping", false);
+                GameController.Instance.ResetPowerUpPoints();
+                
+            }
         }
-        //else 
-        //{
-        //    animator.SetBool("isJumping", false);
-        //}
-        if (attackPowerUpScript.IsAttacking())
-        {
-            doubleJumpScript.SetJumping(false);
-            animator.SetBool("isAttacking", true);
-            animator.SetBool("isJumping", false);
-
-        }
-        else 
+       
+        if(!attackPowerUpScript.IsAttacking()) 
         {
             animator.SetBool("isAttacking", false);
         }

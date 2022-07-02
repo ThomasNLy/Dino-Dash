@@ -28,26 +28,16 @@ public class DoubleJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameController.Instance.IsGameOver() == false && GameController.Instance.IsPaused() == false)
+        if (rb2d.velocity.y > 0)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                jumping = true;
-                //animator.SetBool("isJumping", jumping); // sets the animation parameter value
-                
-              
-            }
-            if (rb2d.velocity.y > 0)
-            {
-                rb2d.gravityScale = gravityJumping;
+            rb2d.gravityScale = gravityJumping;
 
-            }
-            else if (rb2d.velocity.y < 0)
-            {
-                rb2d.gravityScale = gravityFalling;
-            }
         }
-        
+        else if (rb2d.velocity.y < 0)
+        {
+            rb2d.gravityScale = gravityFalling;
+        }
+
     }
 
     private void FixedUpdate()
