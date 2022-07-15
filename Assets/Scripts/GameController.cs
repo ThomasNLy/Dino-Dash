@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
 
     private int points;
 
+    private Slider powerUpBarFill;
+
     RectTransform powerUpBarRectContainer;
 
 
@@ -56,8 +58,7 @@ public class GameController : MonoBehaviour
         gameOverText.SetActive(false);
         points = 0;
         powerUpPoints = 0;
-        powerUpBarRectContainer = powerUpBar.GetComponent<RectTransform>();
-        powerUpBarRectContainer.sizeDelta = new Vector2(10, powerUpBarRectContainer.sizeDelta.y);
+        powerUpBarFill = powerUpBar.GetComponent<Slider>();
       
     }
 
@@ -102,8 +103,9 @@ public class GameController : MonoBehaviour
             }
             scoreGameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + points;
             powerUpBarText.GetComponent<TMPro.TextMeshProUGUI>().text = "Power up: " + powerUpPoints;
-            
-            powerUpBarRectContainer.sizeDelta = new Vector2(powerUpPoints  * 10, powerUpBarRectContainer.sizeDelta.y);
+
+            powerUpBarFill.value = powerUpPoints;
+           
           
         }
 
