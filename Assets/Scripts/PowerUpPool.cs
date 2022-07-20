@@ -8,6 +8,7 @@ public class PowerUpPool : ObjectPoolSpawn
     
     void Start()
     {
+        numOfObjects = 3;
         spawnRate = 10;
         SetUp();
     }
@@ -28,9 +29,10 @@ public class PowerUpPool : ObjectPoolSpawn
         if (objects[spawnIndex].transform.position.x <= outOfBoundsBarrier.transform.position.x && spawnTimer > spawnRate)
         {
             
-            float randomY = Random.Range(spawnLoc.transform.position.y, spawnLoc.transform.position.y + 7);
+            float randomY = Random.Range(spawnLoc.transform.position.y - 1, spawnLoc.transform.position.y + 5);
             objects[spawnIndex].transform.position = new Vector2(spawnLoc.transform.position.x, randomY);
             spawnTimer = 0;
+            spawnRate = Random.Range(8, 20);
         }
         spawnIndex++;
         spawnTimer += Time.deltaTime;

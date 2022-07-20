@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     private bool gameOver;
     [SerializeField]
     private bool paused;
+   
+    
 
     private float scoreTimer;
 
@@ -59,6 +61,7 @@ public class GameController : MonoBehaviour
         points = 0;
         powerUpPoints = 0;
         powerUpBarFill = powerUpBar.GetComponent<Slider>();
+    
       
     }
 
@@ -74,6 +77,8 @@ public class GameController : MonoBehaviour
         {
             gameOverText.SetActive(gameOver);
         }
+
+       
 
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -105,8 +110,8 @@ public class GameController : MonoBehaviour
             powerUpBarText.GetComponent<TMPro.TextMeshProUGUI>().text = "Power up: " + powerUpPoints;
 
             powerUpBarFill.value = powerUpPoints;
-           
-          
+
+
         }
 
 

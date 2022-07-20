@@ -51,7 +51,7 @@ public class AttackPowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Pillar")
+        if (collision.gameObject.tag == "Obstacle")
         {
             collision.transform.position = outOfBoundsBarrier.transform.position;
         }

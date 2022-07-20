@@ -17,7 +17,7 @@ public class DoubleJump : MonoBehaviour
     [SerializeField]
     float gravityJumping = 1.25f;
     [SerializeField]
-    int gravityFalling = 3;
+    int gravityFalling = 2;
     // Start is called before the first frame update
     void Start()
     {

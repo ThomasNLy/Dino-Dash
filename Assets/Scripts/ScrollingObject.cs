@@ -6,6 +6,8 @@ public class ScrollingObject : MonoBehaviour
 {
 
     Rigidbody2D rb;
+    [SerializeField]
+    private float speed = -3.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class ScrollingObject : MonoBehaviour
     {
         if (GameController.Instance.IsGameOver() == false)
         {
-            rb.velocity = new Vector2(-2, 0);
+            rb.velocity = new Vector2(speed, 0);
         }
         else 
         {
