@@ -9,7 +9,7 @@ public class DoubleJump : MonoBehaviour
     [SerializeField]
     bool jumping = false;
     [SerializeField]
-    float jumpForce = 14.5f;
+    float jumpForce = 10.5f;
     [SerializeField]
     int maxJumps = 2;
     [SerializeField]
