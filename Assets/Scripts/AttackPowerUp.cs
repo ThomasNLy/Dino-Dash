@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackPowerUp : MonoBehaviour
 {
     public GameObject outOfBoundsBarrier;
-    public Animator animator;
+ 
     [SerializeField]
     private float timer = 0;
     [SerializeField]
@@ -37,7 +37,7 @@ public class AttackPowerUp : MonoBehaviour
             {
                 child.SetActive(false);
                 attacking = false;
-                // animator.SetBool("isAttacking", attacking);
+               
                 timer = 0f;
             }
             timer += Time.deltaTime;
