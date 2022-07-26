@@ -11,8 +11,9 @@ public class GameController : MonoBehaviour
     private bool gameOver;
     [SerializeField]
     private bool paused;
-   
-    
+
+    [SerializeField]
+    private float scrollSpeed;
 
     private float scoreTimer;
 
@@ -45,7 +46,7 @@ public class GameController : MonoBehaviour
         else
         {
             Instance = this;
-
+            scrollSpeed = -3.25f;
         }
 
 
@@ -61,6 +62,8 @@ public class GameController : MonoBehaviour
         points = 0;
         powerUpPoints = 0;
         powerUpBarFill = powerUpBar.GetComponent<Slider>();
+
+        
     
       
     }
@@ -68,6 +71,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(GetScrollSpeed());
         if (Input.GetMouseButtonDown(0) && gameOver)
         {
             Restart();
@@ -101,7 +105,12 @@ public class GameController : MonoBehaviour
 
                 scoreTimer = 0;
                 points += 1;
+                if (points % 2 == 0)
+                {
+                    scrollSpeed -= 1;
+                }
             }
+
             if (powerUpPoints >= 10)
             {
                 powerUpPoints = 10;
@@ -160,5 +169,10 @@ public class GameController : MonoBehaviour
     public void ResetPowerUpPoints()
     {
         powerUpPoints = 0;
+    }
+
+    public float GetScrollSpeed()
+    {
+        return scrollSpeed;
     }
 }
