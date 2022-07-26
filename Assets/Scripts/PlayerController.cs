@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
        doubleJumpScript = this.gameObject.GetComponent<DoubleJump>();
-        attackPowerUpScript = this.gameObject.GetComponent<AttackPowerUp>();
+       attackPowerUpScript = this.gameObject.GetComponent<AttackPowerUp>();
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
                 
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && GameController.Instance.GetPowerUpPoints() >= 10)
+            if (Input.GetKeyDown(KeyCode.F) && GameController.Instance.GetPowerUpPoints() >= GameController.Instance.GetPowerUpPointsMax())
             {
                 
                 attackPowerUpScript.SetAttacking(true);
