@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7117873675982455122}
   - component: {fileID: 789369132042967010}
   - component: {fileID: 2699958530176698210}
-  - component: {fileID: 2778121538686336502}
   - component: {fileID: 6642658515151132878}
+  - component: {fileID: 3054695996138977798}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: PowerUp
@@ -135,19 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14858574, y: 0.14736561}
   m_EdgeRadius: 0
---- !u!114 &2778121538686336502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585599292729379435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c642cbac51c5ce447a5768cf37cfde97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: -3.5
 --- !u!114 &6642658515151132878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +147,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391792d11be2f4f4aa17da79fdef27c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3054695996138977798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585599292729379435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c642cbac51c5ce447a5768cf37cfde97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -3.5
