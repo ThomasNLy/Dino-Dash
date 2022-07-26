@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpPool : ObjectPoolSpawn
+public class PowerUpPool : ObjectPool
 {
     // Start is called before the first frame update
     
@@ -10,6 +10,8 @@ public class PowerUpPool : ObjectPoolSpawn
     {
         numOfObjects = 3;
         spawnRate = 10;
+        spawnRateMin = 8;
+        spawnRateMax = 20;
         SetUp();
     }
 
@@ -32,7 +34,7 @@ public class PowerUpPool : ObjectPoolSpawn
             float randomY = Random.Range(spawnLoc.transform.position.y - 1, spawnLoc.transform.position.y + 5);
             objects[spawnIndex].transform.position = new Vector2(spawnLoc.transform.position.x, randomY);
             spawnTimer = 0;
-            spawnRate = Random.Range(8, 20);
+            spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         }
         spawnIndex++;
         spawnTimer += Time.deltaTime;
