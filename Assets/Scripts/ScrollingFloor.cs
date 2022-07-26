@@ -15,13 +15,15 @@ public class ScrollingFloor : ScrollingScenery
     {
         otherTileMapSize = otherFloor.transform.GetChild(0).GetComponent<Tilemap>().size.x;
         tileMapSize = gameObject.transform.GetChild(0).GetComponent<Tilemap>().size.x;
-        scrollSpeed = -3.25f;
+        scrollSpeed = GameController.Instance.GetScrollSpeed();
     }
 
     // Update is called once per frame
     void Update()
     {
+        scrollSpeed = GameController.Instance.GetScrollSpeed();
         Scroll();
+        
     }
 
 
