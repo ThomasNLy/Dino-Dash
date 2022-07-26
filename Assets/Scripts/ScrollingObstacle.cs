@@ -10,7 +10,7 @@ public class ScrollingObstacle : ScrollingObject
         SetUp();
     }
 
-    // Update is called once per frame
+   
 
 
     private void FixedUpdate()

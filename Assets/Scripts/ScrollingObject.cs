@@ -12,7 +12,6 @@ public class ScrollingObject : MonoBehaviour
     void Start()
     {
         SetUp();
-        //speed = -3.25f;
     }
 
     // Update is called once per frame
