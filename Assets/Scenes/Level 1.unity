@@ -1021,7 +1021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 580626230}
-  - component: {fileID: 580626229}
+  - component: {fileID: 580626231}
   m_Layer: 0
   m_Name: Floor2
   m_TagString: Untagged
@@ -1029,20 +1029,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &580626229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580626228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5918565ba9267840a3512be026a402b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollSpeed: -0.7
-  otherFloor: {fileID: 937676520}
 --- !u!4 &580626230
 Transform:
   m_ObjectHideFlags: 0
@@ -1059,6 +1045,20 @@ Transform:
   m_Father: {fileID: 1045024777}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580626231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580626228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c993fe5f19f51c14c874c62fa357d677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 0
+  otherFloor: {fileID: 937676520}
 --- !u!1 &617995482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,10 +1207,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 937676520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5918565ba9267840a3512be026a402b, type: 3}
+  m_Script: {fileID: 11500000, guid: c993fe5f19f51c14c874c62fa357d677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: -0.7
+  scrollSpeed: 0
   otherFloor: {fileID: 580626228}
 --- !u!1 &1034125279
 GameObject:
