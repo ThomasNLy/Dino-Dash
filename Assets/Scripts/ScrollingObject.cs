@@ -6,8 +6,8 @@ public class ScrollingObject : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    
-    public float speed = GameController.Instance.GetScrollSpeed();
+
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
