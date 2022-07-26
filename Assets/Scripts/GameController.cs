@@ -14,11 +14,31 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     private float scrollSpeed;
+    [SerializeField]
+    private float maxScrollSpeed = -6f;
+    [SerializeField]
+    private int obstacleSpawnRate = 10;
+    [SerializeField]
+    private int maxObstacleSpawnRate = 4;
 
-    private float scoreTimer;
+    
+    [SerializeField]
+    private int difficultyIncrease = 5; // everytime points are increased by said amount game difficulty increases
+
 
     [SerializeField]
     private int scoreTimerLimit = 3;
+
+    private float scoreTimer;
+    
+    [SerializeField]
+    private int powerUpPoints;
+
+    private int powerUpPointsMax;
+    [SerializeField]
+    private int points;
+
+
 
     public GameObject pauseText;
     public GameObject gameOverText;
@@ -27,10 +47,9 @@ public class GameController : MonoBehaviour
     public GameObject powerUpBar;
     public GameObject outOfBoundsBarrier;
     public GameObject spawnLoc;
-    [SerializeField]
-    private int powerUpPoints;
-
-    private int points;
+    
+    
+   
 
     private Slider powerUpBarFill;
 
@@ -61,11 +80,14 @@ public class GameController : MonoBehaviour
         gameOverText.SetActive(false);
         points = 0;
         powerUpPoints = 0;
-        powerUpBarFill = powerUpBar.GetComponent<Slider>();
-
         
-    
-      
+        powerUpBarFill = powerUpBar.GetComponent<Slider>();
+        powerUpPointsMax = (int)powerUpBar.GetComponent<Slider>().maxValue;
+
+
+
+
+
     }
 
     // Update is called once per frame
@@ -105,15 +127,24 @@ public class GameController : MonoBehaviour
 
                 scoreTimer = 0;
                 points += 1;
-                if (points % 2 == 0)
+                if (points % difficultyIncrease == 0 )
                 {
-                    scrollSpeed -= 1;
+                    if (scrollSpeed >= maxScrollSpeed)
+                    {
+                        scrollSpeed -= 1;
+                    }
+                    if (obstacleSpawnRate > maxObstacleSpawnRate)
+                    {
+                        obstacleSpawnRate -= 1;
+                    }
+
                 }
+               
             }
 
-            if (powerUpPoints >= 10)
+            if (powerUpPoints >= powerUpPointsMax)
             {
-                powerUpPoints = 10;
+                powerUpPoints = powerUpPointsMax;
             }
             scoreGameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + points;
             powerUpBarText.GetComponent<TMPro.TextMeshProUGUI>().text = "Power up: " + powerUpPoints;
@@ -174,5 +205,14 @@ public class GameController : MonoBehaviour
     public float GetScrollSpeed()
     {
         return scrollSpeed;
+    }
+    public float GetObstacleSpawnRate()
+    {
+        return obstacleSpawnRate;
+    }
+
+    public int GetPowerUpPointsMax()
+    {
+        return powerUpPointsMax;
     }
 }
