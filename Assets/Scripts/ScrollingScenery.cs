@@ -5,21 +5,13 @@ using UnityEngine;
 
 public class ScrollingScenery : MonoBehaviour
 {
-    [SerializeField]
-    protected float scrollSpeed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-        scrollSpeed = -3.25f;
-    }
-
+   
+    public float scrollSpeed;
+  
     // Update is called once per frame
     void Update()
     {
         Scroll();
-           
     }
 
     public void Scroll()
