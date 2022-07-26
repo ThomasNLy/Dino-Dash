@@ -834,7 +834,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &309072159
 MonoBehaviour:
@@ -1332,7 +1332,7 @@ Transform:
   - {fileID: 937676521}
   - {fileID: 580626230}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1357655491
 GameObject:
@@ -1956,7 +1956,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611131284
 GameObject:
@@ -2598,6 +2598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   paused: 0
+  scrollSpeed: 0
   scoreTimerLimit: 5
   pauseText: {fileID: 1589609932}
   gameOverText: {fileID: 1357655491}
@@ -2700,7 +2701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2850425521988387324, guid: f9e9baefaa6f86946bb87d99faaaf2c9, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2850425521988387324, guid: f9e9baefaa6f86946bb87d99faaaf2c9, type: 3}
       propertyPath: m_LocalPosition.x
