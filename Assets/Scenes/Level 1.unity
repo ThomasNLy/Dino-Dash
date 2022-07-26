@@ -157,6 +157,8 @@ MonoBehaviour:
   spawnLoc: {fileID: 0}
   outOfBoundsBarrier: {fileID: 0}
   spawnRate: 3
+  spawnRateMin: 1
+  spawnRateMax: 10
 --- !u!212 &13635001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -845,13 +847,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 309072155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3600b52ff71f60469da3c9ec544c4ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 18fd9a86ccc66bf4ebe3fe995f8be00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 507952566646034431, guid: 13f2f31a24657114b9ce6d711e76c4fe, type: 3}
   spawnLoc: {fileID: 0}
   outOfBoundsBarrier: {fileID: 0}
   spawnRate: 3
+  spawnRateMin: 1
+  spawnRateMax: 10
 --- !u!1 &355516687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,7 +1428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1415558077}
   m_Layer: 0
-  m_Name: ItemSpawnLoc
+  m_Name: ObjectLocawnLoc
   m_TagString: SpawnLoc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2154,7 +2158,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 5
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -2599,7 +2603,13 @@ MonoBehaviour:
   gameOver: 0
   paused: 0
   scrollSpeed: 0
+  maxScrollSpeed: -6
+  obstacleSpawnRate: 10
+  maxObstacleSpawnRate: 4
+  difficultyIncrease: 5
   scoreTimerLimit: 5
+  powerUpPoints: 0
+  points: 0
   pauseText: {fileID: 1589609932}
   gameOverText: {fileID: 1357655491}
   scoreGameObject: {fileID: 1506612856}
@@ -2607,7 +2617,6 @@ MonoBehaviour:
   powerUpBar: {fileID: 1729941231}
   outOfBoundsBarrier: {fileID: 1473222322}
   spawnLoc: {fileID: 1415558076}
-  powerUpPoints: 0
 --- !u!1001 &814023548760215000
 PrefabInstance:
   m_ObjectHideFlags: 0
