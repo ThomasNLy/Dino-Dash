@@ -84,6 +84,7 @@ public class GameController : MonoBehaviour
         powerUpBarFill = powerUpBar.GetComponent<Slider>();
         powerUpPointsMax = (int)powerUpBar.GetComponent<Slider>().maxValue;
 
+        Time.timeScale = 1f;
 
 
 
@@ -102,6 +103,7 @@ public class GameController : MonoBehaviour
         if (gameOver)
         {
             gameOverText.SetActive(gameOver);
+            Time.timeScale = 0f;
         }
 
        
@@ -170,6 +172,7 @@ public class GameController : MonoBehaviour
     private void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
     public bool IsPaused()
