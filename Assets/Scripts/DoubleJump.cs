@@ -79,4 +79,9 @@ public class DoubleJump : MonoBehaviour
     {
         return jumping;
     }
+
+    public int NumJumpsLeft()
+    {
+        return numJumps;
+    }
 }
