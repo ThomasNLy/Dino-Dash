@@ -10,6 +10,7 @@ public class PlayerCollectPowerUp : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             GameController.Instance.IncreasePowerUpPoints();
+            AudioController.Instance.PlayPickUpSoundEffect();
             this.transform.position = GameController.Instance.outOfBoundsBarrier.transform.position;
         }
     }
