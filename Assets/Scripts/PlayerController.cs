@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
                 attackPowerUpScript.SetAttacking(false);
                 animator.SetBool("isJumping", true);
                 animator.SetBool("isAttacking", false);
-                Debug.Log(doubleJumpScript.IsJumping());
+                
                 if (doubleJumpScript.IsJumping() && doubleJumpScript.NumJumpsLeft() > 0)
                 {
                     AudioController.Instance.PlayJumpSoundEffect();
