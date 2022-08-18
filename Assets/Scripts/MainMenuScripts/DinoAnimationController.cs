@@ -29,6 +29,7 @@ public class DinoAnimationController : MonoBehaviour
     private bool animating = false;
     private bool faceRight = true;
     private int runSpeed = 5;
+    private float animationDelay = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class DinoAnimationController : MonoBehaviour
     {
 
         timer += Time.deltaTime;
-        if (timer > 2f && animating == false)
+        if (timer > animationDelay && animating == false)
         {
 
             int randomLoc = (int)Random.Range(0, 3);
@@ -63,7 +64,7 @@ public class DinoAnimationController : MonoBehaviour
         }
 
 
-
+        // once the pop animation is done state is witched to POPUPANIMDONE than switched over to RUNANIM state
         if (animState == POPUPANIMDONE)
         {
             animatingDino.SetBool("popUp", false);
@@ -121,7 +122,8 @@ public class DinoAnimationController : MonoBehaviour
 
 
     /**
-     * custom collision function as the parent object has the box collider instead of the child.
+     * custom collision function as the parent object has the box collider instead of the child. 
+     * will switch the animation state to RUNANIMDONE once the player is out of bounds
      */
     private void MyCollisionDetection2D(Collider2D collider)
     {
