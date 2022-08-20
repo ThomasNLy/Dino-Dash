@@ -9,6 +9,7 @@ public class AudioController : MonoBehaviour
     public  AudioSource pickUpItem;
     public AudioSource jump;
     public AudioSource laser;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -29,6 +30,7 @@ public class AudioController : MonoBehaviour
         pickUpItem = pickUpItem.GetComponent<AudioSource>();
         jump = jump.GetComponent<AudioSource>();
         laser = laser.GetComponent<AudioSource>();
+       
     }
 
     // Update is called once per frame
@@ -49,4 +51,6 @@ public class AudioController : MonoBehaviour
     {
         laser.Play();
     }
+
+   
 }
