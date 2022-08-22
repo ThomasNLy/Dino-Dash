@@ -53,7 +53,8 @@ public class GameController : MonoBehaviour
 
     private Slider powerUpBarFill;
 
-    RectTransform powerUpBarRectContainer;
+    public Button pauseButton;
+    public GameObject mainMenuButton;
 
 
     private void Awake()
@@ -84,6 +85,7 @@ public class GameController : MonoBehaviour
         powerUpBarFill = powerUpBar.GetComponent<Slider>();
         powerUpPointsMax = (int)powerUpBar.GetComponent<Slider>().maxValue;
 
+        pauseButton.onClick.AddListener(PauseButtonClicked);
         Time.timeScale = 1f;
 
 
@@ -180,15 +182,17 @@ public class GameController : MonoBehaviour
         return paused;
     }
 
-    void Pause()
+    public void Pause()
     {
         Time.timeScale = 0f;
         pauseText.SetActive(paused);
+        mainMenuButton.SetActive(true);
     }
-    void UnPause()
+    public void UnPause()
     {
         Time.timeScale = 1f;
         pauseText.SetActive(paused);
+        mainMenuButton.SetActive(false);
     }
 
     public void IncreasePowerUpPoints()
@@ -217,5 +221,18 @@ public class GameController : MonoBehaviour
     public int GetPowerUpPointsMax()
     {
         return powerUpPointsMax;
+    }
+
+    private void PauseButtonClicked()
+    {
+        paused = !paused;
+        if (paused)
+        {
+            Pause();
+        }
+        else
+        {
+            UnPause();
+        }
     }
 }
