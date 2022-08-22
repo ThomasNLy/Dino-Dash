@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
         {
             
             GameController.Instance.GameOver();
+            AudioController.Instance.PlayHitSoundEffect();
+            AudioController.Instance.PauseBGMusic();
         }
     }
 

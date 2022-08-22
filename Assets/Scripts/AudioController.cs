@@ -9,6 +9,8 @@ public class AudioController : MonoBehaviour
     public  AudioSource pickUpItem;
     public AudioSource jump;
     public AudioSource laser;
+    public AudioSource hit;
+    public AudioSource bgMusic;
     
     private void Awake()
     {
@@ -30,6 +32,8 @@ public class AudioController : MonoBehaviour
         pickUpItem = pickUpItem.GetComponent<AudioSource>();
         jump = jump.GetComponent<AudioSource>();
         laser = laser.GetComponent<AudioSource>();
+        hit = hit.GetComponent<AudioSource>();
+        bgMusic = bgMusic.GetComponent<AudioSource>();
        
     }
 
@@ -52,5 +56,14 @@ public class AudioController : MonoBehaviour
         laser.Play();
     }
 
+    public void PlayHitSoundEffect()
+    {
+        hit.Play();
+    }
+
+    public void PauseBGMusic()
+    {
+        bgMusic.Pause();
+    }
    
 }
