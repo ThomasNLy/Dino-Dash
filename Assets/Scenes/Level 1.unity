@@ -3928,6 +3928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2038013523}
   - component: {fileID: 2038013524}
+  - component: {fileID: 2038013525}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3974,13 +3975,26 @@ MonoBehaviour:
   points: 0
   pauseText: {fileID: 1589609932}
   gameOverText: {fileID: 1357655491}
-  scoreGameObject: {fileID: 1506612856}
+  scoreText: {fileID: 1506612858}
   powerUpBarText: {fileID: 132475227}
   powerUpBar: {fileID: 1729941231}
   outOfBoundsBarrier: {fileID: 1473222322}
   spawnLoc: {fileID: 1415558076}
   pauseButton: {fileID: 1079497744}
   mainMenuButton: {fileID: 647088693}
+--- !u!114 &2038013525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038013522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa75150b54e77ca44a703d7bcc00310f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScore: 0
 --- !u!1001 &814023548760215000
 PrefabInstance:
   m_ObjectHideFlags: 0

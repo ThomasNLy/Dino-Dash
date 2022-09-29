@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -42,11 +43,12 @@ public class GameController : MonoBehaviour
 
     public GameObject pauseText;
     public GameObject gameOverText;
-    public GameObject scoreGameObject;
-    public GameObject powerUpBarText;
+    public TMP_Text scoreText;
+    public TMP_Text powerUpBarText;
     public GameObject powerUpBar;
     public GameObject outOfBoundsBarrier;
     public GameObject spawnLoc;
+     
     
     
    
@@ -90,7 +92,6 @@ public class GameController : MonoBehaviour
 
 
 
-
     }
 
     // Update is called once per frame
@@ -99,6 +100,13 @@ public class GameController : MonoBehaviour
        
         if (Input.GetMouseButtonDown(0) && gameOver)
         {
+
+            Debug.Log(this.GetComponent<SaveData>().highScore);
+            if (this.GetComponent<SaveData>().highScore < points)
+            {
+                this.GetComponent<SaveData>().Save(points);
+            }
+            
             Restart();
         }
 
@@ -106,6 +114,7 @@ public class GameController : MonoBehaviour
         {
             gameOverText.SetActive(gameOver);
             Time.timeScale = 0f;
+           
         }
 
        
@@ -150,8 +159,8 @@ public class GameController : MonoBehaviour
             {
                 powerUpPoints = powerUpPointsMax;
             }
-            scoreGameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Score: " + points;
-            powerUpBarText.GetComponent<TMPro.TextMeshProUGUI>().text = "Power up: " + powerUpPoints;
+            scoreText.text = "Score: " + points;
+            powerUpBarText.text = "Power up: " + powerUpPoints;
 
             powerUpBarFill.value = powerUpPoints;
 
