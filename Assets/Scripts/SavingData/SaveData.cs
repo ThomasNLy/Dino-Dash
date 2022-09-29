@@ -7,15 +7,13 @@ using UnityEngine;
 public class SaveData : MonoBehaviour
 {
     string saveFile;
-    public int highScore;
     private GameData gameData; 
     // Start is called before the first frame update
     void Awake()
     {
         saveFile = Application.persistentDataPath + "highscore.json";
-        gameData = new GameData();
+        //gameData = new GameData();
         gameData = Load();
-        highScore = gameData.score;
 
     }
     public void Save(int score)
@@ -48,5 +46,10 @@ public class SaveData : MonoBehaviour
     {
         return JsonUtility.FromJson<GameData>(File.ReadAllText(saveFile));
         
+    }
+
+    public int GetHighScore()
+    {
+        return gameData.score;
     }
 }

@@ -101,8 +101,8 @@ public class GameController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && gameOver)
         {
 
-            Debug.Log(this.GetComponent<SaveData>().highScore);
-            if (this.GetComponent<SaveData>().highScore < points)
+            Debug.Log(this.GetComponent<SaveData>().GetHighScore());
+            if (this.GetComponent<SaveData>().GetHighScore() < points)
             {
                 this.GetComponent<SaveData>().Save(points);
             }
