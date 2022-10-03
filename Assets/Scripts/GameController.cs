@@ -31,7 +31,12 @@ public class GameController : MonoBehaviour
     private int scoreTimerLimit = 3;
 
     private float scoreTimer;
+
+    [Header("Level Bounds")]
+    public GameObject outOfBoundsBarrier;
+    public GameObject spawnLoc;
     
+    [Header("UI variables")]     
     [SerializeField]
     private int powerUpPoints;
 
@@ -42,12 +47,11 @@ public class GameController : MonoBehaviour
 
 
     public GameObject pauseText;
-    public GameObject gameOverText;
+    public GameObject gameOverScreen;
     public TMP_Text scoreText;
     public TMP_Text powerUpBarText;
     public GameObject powerUpBar;
-    public GameObject outOfBoundsBarrier;
-    public GameObject spawnLoc;
+    
      
     
     
@@ -57,6 +61,10 @@ public class GameController : MonoBehaviour
 
     public Button pauseButton;
     public GameObject mainMenuButton;
+
+    [Header("Game Over Screen Variables")]
+    public TMP_Text highScoreValue;
+    public TMP_Text currentScoreValue;
 
 
     private void Awake()
@@ -80,7 +88,7 @@ public class GameController : MonoBehaviour
         gameOver = false;
         paused = false;
         pauseText.SetActive(false);
-        gameOverText.SetActive(false);
+        gameOverScreen.SetActive(false);
         points = 0;
         powerUpPoints = 0;
         
@@ -100,11 +108,11 @@ public class GameController : MonoBehaviour
        
         if (Input.GetMouseButtonDown(0) && gameOver)
         {
-
-            Debug.Log(this.GetComponent<SaveData>().GetHighScore());
-            if (this.GetComponent<SaveData>().GetHighScore() < points)
+            SaveData saveData = this.GetComponent<SaveData>();
+           
+            if (saveData.GetHighScore() < points)
             {
-                this.GetComponent<SaveData>().Save(points);
+                saveData.SaveNewHighScore(points);
             }
             
             Restart();
@@ -112,7 +120,17 @@ public class GameController : MonoBehaviour
 
         if (gameOver)
         {
-            gameOverText.SetActive(gameOver);
+            gameOverScreen.SetActive(gameOver);
+            int previousHighScore = this.GetComponent<SaveData>().GetHighScore();
+            if (points > previousHighScore)
+            {
+                highScoreValue.text = points.ToString();
+            }
+            else 
+            {
+                highScoreValue.text = previousHighScore.ToString();
+            }
+            currentScoreValue.text = points.ToString();
             Time.timeScale = 0f;
            
         }

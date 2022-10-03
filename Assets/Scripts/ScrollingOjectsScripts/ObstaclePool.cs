@@ -8,12 +8,13 @@ public class ObstaclePool : ObjectPool
     void Start()
     {
         SetUp();
+        spawnRateMax = GameController.Instance.GetObstacleSpawnRate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawnRateMax = GameController.Instance.GetObstacleSpawnRate();
+        
         SpawnObjects();
     }
 }

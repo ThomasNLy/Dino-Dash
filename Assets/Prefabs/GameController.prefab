@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4722803238110263982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4722803238110263983}
+  - component: {fileID: 4722803238110263976}
+  - component: {fileID: 4722803238110263977}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4722803238110263983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722803238110263982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.9041407, y: 3.988466, z: -0.09242149}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4722803238110263976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722803238110263982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3f7067a02b3d043851cb1af51ab750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: 0
+  paused: 0
+  scrollSpeed: 0
+  maxScrollSpeed: -6
+  obstacleSpawnRate: 10
+  maxObstacleSpawnRate: 4
+  difficultyIncrease: 5
+  scoreTimerLimit: 5
+  outOfBoundsBarrier: {fileID: 0}
+  spawnLoc: {fileID: 0}
+  powerUpPoints: 0
+  points: 0
+  pauseText: {fileID: 0}
+  gameOverScreen: {fileID: 0}
+  scoreText: {fileID: 0}
+  powerUpBarText: {fileID: 0}
+  powerUpBar: {fileID: 0}
+  pauseButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  highScoreValue: {fileID: 0}
+  currentScoreValue: {fileID: 0}
+--- !u!114 &4722803238110263977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722803238110263982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa75150b54e77ca44a703d7bcc00310f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

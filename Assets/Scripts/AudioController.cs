@@ -12,6 +12,7 @@ public class AudioController : MonoBehaviour
     public AudioSource hit;
     public AudioSource bgMusic;
     
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -34,14 +35,10 @@ public class AudioController : MonoBehaviour
         laser = laser.GetComponent<AudioSource>();
         hit = hit.GetComponent<AudioSource>();
         bgMusic = bgMusic.GetComponent<AudioSource>();
+        bgMusic.volume = SaveData.Instance.GetBGMusicVolume();
        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PlayPickUpSoundEffect()
     {
@@ -64,6 +61,11 @@ public class AudioController : MonoBehaviour
     public void PauseBGMusic()
     {
         bgMusic.Pause();
+    }
+
+    public void SetVolumeLevel()
+    {
+        bgMusic.volume = SaveData.Instance.GetBGMusicVolume();
     }
    
 }
