@@ -35,6 +35,8 @@ public class AudioController : MonoBehaviour
         laser = laser.GetComponent<AudioSource>();
         hit = hit.GetComponent<AudioSource>();
         bgMusic = bgMusic.GetComponent<AudioSource>();
+        
+        //set the bg music volume as soon as game starts
         bgMusic.volume = SaveData.Instance.GetBGMusicVolume();
        
     }

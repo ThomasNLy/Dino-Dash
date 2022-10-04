@@ -6,4 +6,5 @@ public class GameData
 {
     public int score;
     public float bgMusicVolume;
+    public float soundEffectVolume;
 }

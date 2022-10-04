@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.VersionControl;
+
 using UnityEngine;
 
 public class SaveData : MonoBehaviour
@@ -20,8 +20,32 @@ public class SaveData : MonoBehaviour
         else 
         {
             Instance = this;
-            saveFile = Application.persistentDataPath + "highscore.json";
-            gameData = Load();
+            saveFile = Application.persistentDataPath + "SaveFile.json";
+            try
+            {
+                
+                if (File.Exists(saveFile))
+                {
+                
+                    gameData = Load();
+                }
+                else
+                {
+                    gameData = new GameData();
+                    gameData.score = 0;
+                    gameData.bgMusicVolume = 1;
+                    string jsonString = JsonUtility.ToJson(gameData);
+                    File.WriteAllText(saveFile, jsonString);
+                    //Debug.Log(jsonString);
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                //Debug.LogError(e.Message);
+                
+            }
+
+
         }
         
        
@@ -57,9 +81,18 @@ public class SaveData : MonoBehaviour
         }
     }
 
-    public void SaveSettings(float volume)
+    public void SaveSettings(float volume, string name)
     {
-        gameData.bgMusicVolume = volume;
+        if(name == "Music")
+        {
+            gameData.bgMusicVolume = volume;
+        }
+
+        if (name == "Sound Effect")
+        {
+            gameData.soundEffectVolume = volume;
+        }
+
         Save();
     }
 
@@ -70,6 +103,7 @@ public class SaveData : MonoBehaviour
     }
     public GameData Load()
     {
+        
         return JsonUtility.FromJson<GameData>(File.ReadAllText(saveFile));
         
     }
