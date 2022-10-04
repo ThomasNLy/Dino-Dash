@@ -13,11 +13,15 @@ public class VolumeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (volumeName == "Music")
+        if (volumeName == SaveData.Instance.MusicVolume)
         {
-            volumeSlider.value = SaveData.Instance.GetBGMusicVolume();
+           volumeSlider.value = SaveData.Instance.GetBGMusicVolume();
         }
-        
+        else if (volumeName == SaveData.Instance.SoundEffectVolume)
+        {
+            volumeSlider.value = SaveData.Instance.GetSoundEffectVolume();
+        }
+
     }
 
     // Update is called once per frame
