@@ -38,6 +38,7 @@ public class AudioController : MonoBehaviour
         
         //set the bg music volume as soon as game starts
         bgMusic.volume = SaveData.Instance.GetBGMusicVolume();
+        jump.volume = SaveData.Instance.GetSoundEffectVolume();
        
     }
 
