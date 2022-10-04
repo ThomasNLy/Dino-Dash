@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     public GameObject pauseText;
     public GameObject gameOverScreen;
     public TMP_Text scoreText;
-    public TMP_Text powerUpBarText;
+   
     public GameObject powerUpBar;
     
      
@@ -178,7 +178,7 @@ public class GameController : MonoBehaviour
                 powerUpPoints = powerUpPointsMax;
             }
             scoreText.text = "Score: " + points;
-            powerUpBarText.text = "Power up: " + powerUpPoints;
+           
 
             powerUpBarFill.value = powerUpPoints;
 
