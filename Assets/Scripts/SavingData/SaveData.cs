@@ -10,6 +10,9 @@ public class SaveData : MonoBehaviour
     private GameData gameData; 
 
     public static SaveData Instance;
+    private const string MUSIC = "Music";
+    private const string SOUNDEFFECT = "Sound Effect";
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,12 +39,12 @@ public class SaveData : MonoBehaviour
                     gameData.bgMusicVolume = 1;
                     string jsonString = JsonUtility.ToJson(gameData);
                     File.WriteAllText(saveFile, jsonString);
-                    //Debug.Log(jsonString);
+                    
                 }
             }
             catch (FileNotFoundException e)
             {
-                //Debug.LogError(e.Message);
+                Debug.LogError(e.Message);
                 
             }
 
@@ -83,12 +86,12 @@ public class SaveData : MonoBehaviour
 
     public void SaveSettings(float volume, string name)
     {
-        if(name == "Music")
+        if(name == MUSIC)
         {
             gameData.bgMusicVolume = volume;
         }
 
-        if (name == "Sound Effect")
+        else if (name == SOUNDEFFECT)
         {
             gameData.soundEffectVolume = volume;
         }
@@ -117,5 +120,21 @@ public class SaveData : MonoBehaviour
     {
         gameData = Load();
         return gameData.bgMusicVolume;
+    }
+
+    public float GetSoundEffectVolume()
+    {
+        gameData = Load();
+        return gameData.soundEffectVolume;
+    }
+
+    public string MusicVolume
+    {
+        get { return MUSIC; } 
+    }
+
+    public string SoundEffectVolume
+    {
+        get { return SOUNDEFFECT; }
     }
 }
