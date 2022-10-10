@@ -30,7 +30,7 @@ public class ObjectPool : MonoBehaviour
     /**
      * setupFunction is created as needed for inheritance as a parent class
      */
-    public void SetUp()
+    public virtual void SetUp()
     {
         outOfBoundsBarrier = GameController.Instance.outOfBoundsBarrier;
         spawnLoc = GameController.Instance.spawnLoc;
@@ -44,12 +44,15 @@ public class ObjectPool : MonoBehaviour
     //need to add virtual so it can be inherited from 
     public virtual void SpawnObjects()
     {
-       
-        if (spawnIndex >= objects.Length)
+
+        spawnIndex++;
+        spawnTimer += Time.deltaTime;
+        if (spawnIndex > objects.Length - 1)
         {
             spawnIndex = 0;
 
         }
+       
 
         if (spawnTimer > spawnRate && objects[spawnIndex].transform.position.x <= outOfBoundsBarrier.transform.position.x)
         {
@@ -59,8 +62,9 @@ public class ObjectPool : MonoBehaviour
             spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         }
 
-        spawnIndex++;
-        spawnTimer += Time.deltaTime;
+       
+
+        
     }
 }
 
