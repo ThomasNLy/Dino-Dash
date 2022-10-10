@@ -13,6 +13,7 @@ public class VolumeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //checks to see which volume setting you are changing and sets it to the right one
         if (volumeName == SaveData.Instance.MusicVolume)
         {
            volumeSlider.value = SaveData.Instance.GetBGMusicVolume();
@@ -31,6 +32,7 @@ public class VolumeController : MonoBehaviour
     }
 
     //System.Single needed to pass the volume slider value a 'dynamic' float in order to work
+    //sets and saves the volume settings 
     public void VolumeSetting(System.Single v)
     {
         //Debug.Log(v);

@@ -4,12 +4,19 @@ using System.IO;
 
 using UnityEngine;
 
+/**
+ * Used to save the games data such as high score and game settings 
+ * The save data is stored in a json file
+ */
 public class SaveData : MonoBehaviour
 {
     string saveFile;
     private GameData gameData; 
 
+    // only 1 instance of the save data game object can exist at a time 
     public static SaveData Instance;
+    
+    //various settings to save
     private const string MUSIC = "Music";
     private const string SOUNDEFFECT = "Sound Effect";
     
@@ -32,11 +39,14 @@ public class SaveData : MonoBehaviour
                 
                     gameData = Load();
                 }
+                
+                // inital/default settings if a save file doesn't exist, stored as a json object 
                 else
                 {
                     gameData = new GameData();
                     gameData.score = 0;
                     gameData.bgMusicVolume = 1;
+                    gameData.soundEffectVolume = 0.69f;
                     string jsonString = JsonUtility.ToJson(gameData);
                     File.WriteAllText(saveFile, jsonString);
                     
@@ -54,14 +64,15 @@ public class SaveData : MonoBehaviour
        
 
     }
+    /**
+     * Saves the current game data by overwritting the current save file in json format. 
+     */
     public void Save()
     {
         
-        if (File.Exists(saveFile))
-        {
-            //overide the file
-            //Debug.Log(Application.persistentDataPath);
-            //gameData.score = score;
+        //if (File.Exists(saveFile))
+        //{
+            
             string currentGameData = JsonUtility.ToJson(gameData);
            
             JsonUtility.FromJsonOverwrite(currentGameData, gameData);
@@ -69,19 +80,15 @@ public class SaveData : MonoBehaviour
             string gameDataJSonString = JsonUtility.ToJson(gameData);
             File.WriteAllText(saveFile, gameDataJSonString);
             
-        }
-        else 
-        {
+        //}
+        //else 
+        //{
             
-            string jsonString = JsonUtility.ToJson(gameData);
+        //    string jsonString = JsonUtility.ToJson(gameData);
            
-            File.WriteAllText(saveFile, jsonString);
-            // create file 
-            // StreamWriter writer = new StreamWriter(saveFile);
-            //writer.WriteLine("hello");
-            // writer.Close();
+        //    File.WriteAllText(saveFile, jsonString);
 
-        }
+        //}
     }
 
     public void SaveSettings(float volume, string name)
@@ -118,16 +125,18 @@ public class SaveData : MonoBehaviour
 
     public float GetBGMusicVolume()
     {
-        gameData = Load();
+        //gameData = Load();
         return gameData.bgMusicVolume;
     }
 
     public float GetSoundEffectVolume()
     {
-        gameData = Load();
+        //gameData = Load();
+        
         return gameData.soundEffectVolume;
     }
 
+    // gets the volume setting name in order to save to the correct one and allows access to it, similar to a class property
     public string MusicVolume
     {
         get { return MUSIC; } 
