@@ -25,13 +25,13 @@ public class ScrollingObject : MonoBehaviour
         Scroll();
     }
 
-    protected void SetUp()
+    protected virtual void SetUp()
     {
         rb = GetComponent<Rigidbody2D>();
 
     }
     
-    public void Scroll()
+    public virtual void Scroll()
     {
         if (GameController.Instance.IsGameOver() == false && GameController.Instance.IsPaused() == false)
         {
