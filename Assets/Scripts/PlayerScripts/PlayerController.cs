@@ -53,4 +53,16 @@ public class PlayerController : MonoBehaviour
         
         
     }
+
+    public void Attack()
+    {
+        if (GameController.Instance.GetPowerUpPoints() >= GameController.Instance.GetPowerUpPointsMax())
+        {
+            attackPowerUpScript.SetAttacking(true);
+            animator.SetBool("isAttacking", true);
+            animator.SetBool("isJumping", false);
+            GameController.Instance.ResetPowerUpPoints();
+            AudioController.Instance.PlayLaserSoundEffect();
+        }
+    }
 }
