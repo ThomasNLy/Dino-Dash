@@ -4,10 +4,11 @@ using UnityEngine;
 
 /**
  * an object used to represent the various properties in order to save the game
+ * static class for webgl version to allow it to persist across scenes 
  */
-public class GameData
+public static class GameData
 {
-    public int score;
-    public float bgMusicVolume;
-    public float soundEffectVolume;
+    public static int score;
+    public static float bgMusicVolume;
+    public static float soundEffectVolume;
 }

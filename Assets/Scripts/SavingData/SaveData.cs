@@ -10,8 +10,8 @@ using UnityEngine;
  */
 public class SaveData : MonoBehaviour
 {
-    string saveFile;
-    private GameData gameData; 
+    //string saveFile;
+    
 
     // only 1 instance of the save data game object can exist at a time 
     public static SaveData Instance;
@@ -30,33 +30,35 @@ public class SaveData : MonoBehaviour
         else 
         {
             Instance = this;
-            saveFile = Application.persistentDataPath + "SaveFile.json";
-            try
-            {
+            GameData.bgMusicVolume = 1;
+            GameData.soundEffectVolume = 0.69f;
+            //saveFile = Application.persistentDataPath + "SaveFile.json";
+            //try
+            //{
                 
-                if (File.Exists(saveFile))
-                {
+            //    if (File.Exists(saveFile))
+            //    {
                 
-                    gameData = Load();
-                }
-                
-                // inital/default settings if a save file doesn't exist, stored as a json object 
-                else
-                {
-                    gameData = new GameData();
-                    gameData.score = 0;
-                    gameData.bgMusicVolume = 1;
-                    gameData.soundEffectVolume = 0.69f;
-                    string jsonString = JsonUtility.ToJson(gameData);
-                    File.WriteAllText(saveFile, jsonString);
                     
-                }
-            }
-            catch (FileNotFoundException e)
-            {
-                Debug.LogError(e.Message);
+            //    }
                 
-            }
+            //    // inital/default settings if a save file doesn't exist, stored as a json object 
+            //    else
+            //    {
+            //        gameData = new GameData();
+            //        gameData.score = 0;
+            //        gameData.bgMusicVolume = 1;
+            //        gameData.soundEffectVolume = 0.69f;
+            //        string jsonString = JsonUtility.ToJson(gameData);
+            //        File.WriteAllText(saveFile, jsonString);
+                    
+            //    }
+            //}
+            //catch (FileNotFoundException e)
+            //{
+            //    Debug.LogError(e.Message);
+                
+            //}
 
 
         }
@@ -67,73 +69,68 @@ public class SaveData : MonoBehaviour
     /**
      * Saves the current game data by overwritting the current save file in json format. 
      */
-    public void Save()
-    {
+    //public void Save()
+    //{
         
-        //if (File.Exists(saveFile))
-        //{
+    //    //if (File.Exists(saveFile))
+    //    //{
             
-            string currentGameData = JsonUtility.ToJson(gameData);
+    //        string currentGameData = JsonUtility.ToJson(gameData);
            
-            JsonUtility.FromJsonOverwrite(currentGameData, gameData);
+    //        JsonUtility.FromJsonOverwrite(currentGameData, gameData);
 
-            string gameDataJSonString = JsonUtility.ToJson(gameData);
-            File.WriteAllText(saveFile, gameDataJSonString);
+    //        string gameDataJSonString = JsonUtility.ToJson(gameData);
+    //        File.WriteAllText(saveFile, gameDataJSonString);
             
-        //}
-        //else 
-        //{
+    //    //}
+    //    //else 
+    //    //{
             
-        //    string jsonString = JsonUtility.ToJson(gameData);
+    //    //    string jsonString = JsonUtility.ToJson(gameData);
            
-        //    File.WriteAllText(saveFile, jsonString);
+    //    //    File.WriteAllText(saveFile, jsonString);
 
-        //}
-    }
+    //    //}
+    //}
 
     public void SaveSettings(float volume, string name)
     {
         if(name == MUSIC)
         {
-            gameData.bgMusicVolume = volume;
+            GameData.bgMusicVolume = volume;
         }
 
         else if (name == SOUNDEFFECT)
         {
-            gameData.soundEffectVolume = volume;
+            GameData.soundEffectVolume = volume;
         }
 
-        Save();
+       // Save();
     }
 
     public void SaveNewHighScore(int score)
     {
-        gameData.score = score;
-        Save();
+        GameData.score = score;
+        //Save();
     }
-    public GameData Load()
-    {
-        
-        return JsonUtility.FromJson<GameData>(File.ReadAllText(saveFile));
-        
-    }
+  
 
     public int GetHighScore()
     {
-        return gameData.score;
+        return GameData.score;
     }
 
     public float GetBGMusicVolume()
     {
         //gameData = Load();
-        return gameData.bgMusicVolume;
+        return GameData.bgMusicVolume;
     }
 
     public float GetSoundEffectVolume()
     {
         //gameData = Load();
         
-        return gameData.soundEffectVolume;
+        return GameData.soundEffectVolume;
     }
 
     // gets the volume setting name in order to save to the correct one and allows access to it, similar to a class property
