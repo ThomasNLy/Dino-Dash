@@ -35,7 +35,7 @@ public class VolumeController : MonoBehaviour
     //sets and saves the volume settings 
     public void VolumeSetting(System.Single v)
     {
-        //Debug.Log(v);
+        
         audioSource.volume = v;
         SaveData.Instance.SaveSettings(v, volumeName);
     }
