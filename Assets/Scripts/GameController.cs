@@ -101,7 +101,7 @@ public class GameController : MonoBehaviour
         
        highscoreText.text = "Highscore: " + SaveData.Instance.GetHighScore().ToString();
 
-        Debug.Log(highscoreText.gameObject.name);
+        
         if (SaveData.Instance.GetHighScore() != 0)
         {
             highscoreText.gameObject.SetActive(true);
