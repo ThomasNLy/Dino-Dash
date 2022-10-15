@@ -863,6 +863,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1162270823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1640225440178525257, guid: 87eb6dedb3381fc41ba97cf2e662954c, type: 3}
+  m_PrefabInstance: {fileID: 28016183936842631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1324885951 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 28016185177824312, guid: 87eb6dedb3381fc41ba97cf2e662954c, type: 3}
@@ -1807,6 +1818,10 @@ PrefabInstance:
       propertyPath: pauseButton
       value: 
       objectReference: {fileID: 1079497744}
+    - target: {fileID: 4722803238110263976, guid: 97f6d2109e921114cb3b47817da7f5fe, type: 3}
+      propertyPath: highscoreText
+      value: 
+      objectReference: {fileID: 1162270823}
     - target: {fileID: 4722803238110263976, guid: 97f6d2109e921114cb3b47817da7f5fe, type: 3}
       propertyPath: gameOverScreen
       value: 
