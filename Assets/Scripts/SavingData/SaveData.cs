@@ -30,68 +30,12 @@ public class SaveData : MonoBehaviour
         else 
         {
             Instance = this;
-            GameData.bgMusicVolume = 1;
-            GameData.soundEffectVolume = 0.69f;
-            //saveFile = Application.persistentDataPath + "SaveFile.json";
-            //try
-            //{
-                
-            //    if (File.Exists(saveFile))
-            //    {
-                
-                    
-            //    }
-                
-            //    // inital/default settings if a save file doesn't exist, stored as a json object 
-            //    else
-            //    {
-            //        gameData = new GameData();
-            //        gameData.score = 0;
-            //        gameData.bgMusicVolume = 1;
-            //        gameData.soundEffectVolume = 0.69f;
-            //        string jsonString = JsonUtility.ToJson(gameData);
-            //        File.WriteAllText(saveFile, jsonString);
-                    
-            //    }
-            //}
-            //catch (FileNotFoundException e)
-            //{
-            //    Debug.LogError(e.Message);
-                
-            //}
-
-
         }
         
        
 
     }
-    /**
-     * Saves the current game data by overwritting the current save file in json format. 
-     */
-    //public void Save()
-    //{
-        
-    //    //if (File.Exists(saveFile))
-    //    //{
-            
-    //        string currentGameData = JsonUtility.ToJson(gameData);
-           
-    //        JsonUtility.FromJsonOverwrite(currentGameData, gameData);
-
-    //        string gameDataJSonString = JsonUtility.ToJson(gameData);
-    //        File.WriteAllText(saveFile, gameDataJSonString);
-            
-    //    //}
-    //    //else 
-    //    //{
-            
-    //    //    string jsonString = JsonUtility.ToJson(gameData);
-           
-    //    //    File.WriteAllText(saveFile, jsonString);
-
-    //    //}
-    //}
+    
 
     public void SaveSettings(float volume, string name)
     {

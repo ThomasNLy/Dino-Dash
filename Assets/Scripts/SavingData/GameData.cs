@@ -9,6 +9,6 @@ using UnityEngine;
 public static class GameData
 {
     public static int score;
-    public static float bgMusicVolume;
-    public static float soundEffectVolume;
+    public static float bgMusicVolume = 1;
+    public static float soundEffectVolume = 0.69f;
 }
