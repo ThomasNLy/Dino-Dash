@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour
     public GameObject pauseText;
     public GameObject gameOverScreen;
     public TMP_Text scoreText;
+    public TMP_Text highscoreText;
    
     public GameObject powerUpBar;
     
@@ -97,7 +98,18 @@ public class GameController : MonoBehaviour
 
         pauseButton.onClick.AddListener(PauseButtonClicked);
         Time.timeScale = 1f;
+        
+       highscoreText.text = "Highscore: " + SaveData.Instance.GetHighScore().ToString();
 
+        Debug.Log(highscoreText.gameObject.name);
+        if (SaveData.Instance.GetHighScore() != 0)
+        {
+            highscoreText.gameObject.SetActive(true);
+        }
+        else
+        {
+            highscoreText.gameObject.SetActive(false);
+        }
 
 
     }
