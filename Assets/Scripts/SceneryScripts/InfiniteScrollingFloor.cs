@@ -8,6 +8,7 @@ public class InfiniteScrollingFloor : ScrollingScenery
 
     int tileMapSize;
     public GameObject otherFloor;
+    //public GameObject outofbounds;
     int otherTileMapSize;
     // Start is called before the first frame update
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class InfiniteScrollingFloor : ScrollingScenery
 
     public override void wrapAround()
     {
-        if (gameObject.transform.position.x + tileMapSize <= -9.5)
+        if (gameObject.transform.position.x + tileMapSize <= -12)
         {
             gameObject.transform.position = new Vector3(otherFloor.transform.position.x + otherTileMapSize - 1, otherFloor.transform.position.y);
         }
