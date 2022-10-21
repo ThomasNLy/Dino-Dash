@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerController : MonoBehaviour
     {
         if (GameController.Instance.IsGameOver() == false && GameController.Instance.IsPaused() == false)
         {
+            if (EventSystem.current.IsPointerOverGameObject()) return; // prevents mouse clicks when clicking on ui icon
+
+
             if (Input.GetMouseButtonDown(0))
             {
                 doubleJumpScript.SetJumping(true);
