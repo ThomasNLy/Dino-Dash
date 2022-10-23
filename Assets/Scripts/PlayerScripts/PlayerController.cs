@@ -20,22 +20,28 @@ public class PlayerController : MonoBehaviour
     {
         if (GameController.Instance.IsGameOver() == false && GameController.Instance.IsPaused() == false)
         {
-            if (EventSystem.current.IsPointerOverGameObject()) return; // prevents mouse clicks when clicking on ui icon
 
-
-            if (Input.GetMouseButtonDown(0))
+            // everytime touching screen 
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                doubleJumpScript.SetJumping(true);
-                attackPowerUpScript.SetAttacking(false);
-                animator.SetBool("isJumping", true);
-                animator.SetBool("isAttacking", false);
-                
-                if (doubleJumpScript.IsJumping() && doubleJumpScript.NumJumpsLeft() > 0)
+                if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
                 {
-                    AudioController.Instance.PlayJumpSoundEffect();
+                    return;
                 }
-                
-                
+                else
+                {
+                    doubleJumpScript.SetJumping(true);
+                    attackPowerUpScript.SetAttacking(false);
+                    animator.SetBool("isJumping", true);
+                    animator.SetBool("isAttacking", false);
+
+                    if (doubleJumpScript.IsJumping() && doubleJumpScript.NumJumpsLeft() > 0)
+                    {
+                        AudioController.Instance.PlayJumpSoundEffect();
+                    }
+
+                }
+
             }
 
             if (Input.GetKeyDown(KeyCode.F) && GameController.Instance.GetPowerUpPoints() >= GameController.Instance.GetPowerUpPointsMax())
@@ -68,5 +74,19 @@ public class PlayerController : MonoBehaviour
             GameController.Instance.ResetPowerUpPoints();
             AudioController.Instance.PlayLaserSoundEffect();
         }
+    }
+
+    public bool IsPointerOnUIObject()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("touch");
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+
+                return true; // prevents mouse clicks when clicking on ui icon  
+            }
+        }
+        return false;
     }
 }
