@@ -25,12 +25,6 @@ public class VolumeController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //System.Single needed to pass the volume slider value a 'dynamic' float in order to work
     //sets and saves the volume settings 
     public void VolumeSetting(System.Single v)
